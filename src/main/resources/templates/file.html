@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>程序猿张先森 | 写文章</title>
+
+    <link rel="icon" type="image/x-icon" href="https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/favicon.ico">
+    <link href="https://lib.baomitu.com/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/editormd/editormd.min.css"/>
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/editormd/editor.css">
+    <link href="https://lib.baomitu.com/font-awesome/5.8.0/css/fontawesome.min.css" rel="stylesheet">
+    <style>
+        /*隐藏markdown全窗口预览不会关闭的bug，会导致其他fa选择器同时隐藏*/
+        .fa{
+            display: none;
+        }
+    </style>
+    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/editormd/editormd.js"></script>
+    <script src="https://lib.baomitu.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+</head>
+<body>
+
+<button id="aff">11111</button>
+
+</body>
+<script>
+        function find() {
+            $.ajax({
+                type: 'POST',
+                url: '/newdate',
+                dataType: 'json',
+                data: {},
+                success: function (data) {
+                    $.each(data,function (index,obj) {
+                        if(index != (data.length) - 1) {
+                            console.log("userName=" + obj["thisArticleUrl"]);
+                           // console.log("userName=" + obj["originalAuthor"]);
+                        }
+                    })
+                },
+                error: function () {
+                    alert("获得文章信息失败！");
+                }
+            })
+        }
+        $(document).ready(function () {
+            find();  //页面加载完成就执行该方法
+        });
+
+
+</script>
+</html>
