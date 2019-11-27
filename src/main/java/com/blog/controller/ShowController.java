@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import sun.rmi.runtime.Log;
 
-@Controller
+@RestController
 public class ShowController {
 
     @Autowired
