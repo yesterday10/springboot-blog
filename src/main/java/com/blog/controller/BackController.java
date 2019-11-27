@@ -24,7 +24,7 @@ import java.util.Set;
  * 页面跳转页面
  * @author 12sigma
  */
-@Controller
+@RESTController
 public class BackController {
 
     @Autowired
